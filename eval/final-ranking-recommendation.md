@@ -2,7 +2,7 @@
 
 Governance review, not an implementation change. Extends [eval/ranking-candidate-comparison.md](ranking-candidate-comparison.md) with a full top-20 comparison across five fields, per governance request. Grounded in [CLAUDE.md](../CLAUDE.md), [capability-map.md](../capability-map.md), [knowledge/business-discovery.md](../knowledge/business-discovery.md), and computed directly from [data/processed/centre-summary.json](../data/processed/centre-summary.json) using the same logic as [scripts/build_centre_summary.py](../scripts/build_centre_summary.py) (unchanged by this document).
 
-**This document does not modify the dashboard, the ranking selector, or the pipeline.** It recommends one candidate for review before anything is locked in.
+**This document records the final production-ranking decision.** Candidate B has been adopted for both the deterministic pipeline and the dashboard, while Candidates A and C are retained only as evaluation artifacts.
 
 ---
 
@@ -145,4 +145,6 @@ This revises the draft recommendation in [eval/ranking-candidate-comparison.md](
 - B is not immune to staleness either (`ALOTTA FUN CHILDCARE OSC`'s last citation is 2024-09-19), just far less exposed than A.
 - Recency is only a final tiebreaker in all three candidates, including B — none of them treat "how long ago" as a primary ranking factor. If that turns out to matter more than this analysis assumes, that would require a new, separately governed candidate, not a silent change to B.
 
-**This is a recommendation, not a decision.** Per CLAUDE.md's Human in the Loop section, selecting a final ranking candidate — and whether to act on any centre's position in it — remains Priya's (and her program's) governance decision. The ranking candidate selector in `dashboard/index.html` is left in place and unchanged so that comparison remains possible until that decision is made.
+**This recommendation has been adopted as the production ranking.** Candidate B is now the deterministic production ranking used by both the pipeline and the dashboard. Candidate A and Candidate C are retained only as evaluation artifacts for traceability and comparison; they are no longer used in production.
+
+Final follow-up decisions for individual centres remain with Priya and her program team, as described in the **Human in the Loop** section of `CLAUDE.md`. The dashboard presents a deterministic priority order to support decision-making, but it does not replace human judgment or recommend that any specific enforcement action be taken.
