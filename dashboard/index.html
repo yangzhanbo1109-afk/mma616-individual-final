@@ -1,0 +1,828 @@
+<title>Priority Follow-Up Dashboard</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<style>
+  :root {
+    color-scheme: light;
+    --surface-1:      #fcfcfb;
+    --page:           #f9f9f7;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --gridline:       #e1e0d9;
+    --border:         rgba(11,11,11,0.10);
+    --status-warning: #fab219;
+    --status-serious: #ec835a;
+    --status-critical:#d03b3b;
+    --status-neutral: #c3c2b7;
+    --demo-bg:        #fff7e0;
+    --demo-border:    #eda100;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --surface-1:      #1a1a19;
+      --page:           #0d0d0d;
+      --text-primary:   #ffffff;
+      --text-secondary: #c3c2b7;
+      --text-muted:     #898781;
+      --gridline:       #2c2c2a;
+      --border:         rgba(255,255,255,0.10);
+      --status-warning: #fab219;
+      --status-serious: #ec835a;
+      --status-critical:#d03b3b;
+      --status-neutral: #52514e;
+      --demo-bg:        #2a2410;
+      --demo-border:    #c98500;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--page);
+    color: var(--text-primary);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.4;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 20px 20px 80px; }
+
+  .demo-banner {
+    background: var(--demo-bg);
+    border: 1px solid var(--demo-border);
+    color: var(--text-primary);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+  }
+
+  header.decision {
+    margin-bottom: 20px;
+  }
+  header.decision .user {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 2px;
+  }
+  header.decision h1 {
+    font-size: 20px;
+    margin: 0 0 4px;
+  }
+  header.decision .sub {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  section.panel {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 18px;
+  }
+  section.panel h2 {
+    font-size: 15px;
+    margin: 0 0 2px;
+  }
+  section.panel .panel-question {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    margin: 0 0 12px;
+  }
+  section.panel .panel-tag {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+
+  /* Panel A gets primary visual weight */
+  #panel-priority {
+    border-width: 2px;
+    border-color: color-mix(in srgb, var(--status-warning) 40%, var(--border));
+  }
+  #panel-priority h2 { font-size: 18px; }
+
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: flex-end;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--gridline);
+  }
+  .filter-field { display: flex; flex-direction: column; gap: 4px; }
+  .filter-field label {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: .02em;
+  }
+  .filter-field select {
+    font-size: 13px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    border: 1px solid var(--gridline);
+    background: var(--surface-1);
+    color: var(--text-primary);
+    min-width: 160px;
+  }
+  .filter-checks { display: flex; gap: 10px; flex-wrap: wrap; }
+  .filter-checks label {
+    font-size: 12.5px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--text-secondary);
+  }
+  .filter-reset {
+    font-size: 12px;
+    background: none;
+    border: 1px solid var(--gridline);
+    border-radius: 6px;
+    padding: 6px 10px;
+    cursor: pointer;
+    color: var(--text-secondary);
+  }
+  .filter-reset:hover { background: var(--gridline); }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead th {
+    text-align: left;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--gridline);
+    padding: 6px 8px;
+    font-variant-numeric: tabular-nums;
+  }
+  tbody td {
+    padding: 8px;
+    border-bottom: 1px solid var(--gridline);
+    vertical-align: top;
+    font-variant-numeric: tabular-nums;
+  }
+  tbody tr.row-clickable { cursor: pointer; }
+  tbody tr.row-clickable:hover { background: color-mix(in srgb, var(--status-warning) 8%, transparent); }
+  tbody tr.row-selected { background: color-mix(in srgb, var(--status-warning) 18%, transparent); }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  .badge .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+  .badge.tier-none .dot { background: var(--status-neutral); }
+  .badge.tier-warning .dot { background: var(--status-warning); }
+  .badge.tier-serious .dot { background: var(--status-serious); }
+  .badge.tier-critical .dot { background: var(--status-critical); }
+
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 12px;
+    font-size: 11.5px; color: var(--text-muted);
+    margin-top: 10px;
+  }
+  .legend span { display: inline-flex; align-items: center; gap: 5px; }
+  .legend .dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  .caption {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    margin-top: 10px;
+  }
+
+  #panel-explain { display: none; }
+  #panel-explain.visible { display: block; }
+  .explain-placeholder {
+    font-size: 13px;
+    color: var(--text-muted);
+    padding: 10px 0;
+  }
+  .explain-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 10px;
+  }
+  .explain-header .name { font-size: 15px; font-weight: 700; }
+  .explain-header .close-btn {
+    font-size: 12px;
+    background: none;
+    border: 1px solid var(--gridline);
+    border-radius: 6px;
+    padding: 4px 8px;
+    cursor: pointer;
+    color: var(--text-secondary);
+  }
+  .history-row {
+    display: grid;
+    grid-template-columns: 100px 170px 1fr 170px;
+    gap: 10px;
+    font-size: 12.5px;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--gridline);
+  }
+  .history-row:last-child { border-bottom: none; }
+  .history-row .reason { color: var(--text-secondary); }
+  .history-row .nc { color: var(--text-primary); }
+  .history-row .nc.empty { color: var(--text-muted); font-style: italic; }
+
+  .ask-box { display: flex; gap: 8px; align-items: flex-start; }
+  .ask-box textarea {
+    flex: 1;
+    min-height: 54px;
+    font-family: inherit;
+    font-size: 13px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--gridline);
+    background: var(--surface-1);
+    color: var(--text-primary);
+    resize: vertical;
+  }
+  .ask-box button {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: none;
+    background: var(--status-warning);
+    color: #1a1200;
+    cursor: pointer;
+    align-self: stretch;
+  }
+  .ask-box button:hover { filter: brightness(1.05); }
+  .ask-log { margin-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+  .ask-bubble {
+    font-size: 13px;
+    background: var(--page);
+    border: 1px dashed var(--demo-border);
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+  .ask-bubble .q { font-weight: 600; margin-bottom: 4px; }
+  .ask-bubble .a { color: var(--text-secondary); }
+
+  footer.next-step {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 24px;
+  }
+</style>
+
+<div class="wrap">
+
+  <div class="demo-banner" id="data-status-banner">Loading processed data…</div>
+  <p class="caption" id="audit-note"></p>
+
+  <header class="decision">
+    <div class="user">Priya Desai · Regional Program Manager, Licensing &amp; Monitoring</div>
+    <h1>Which licensed child care centres should inspectors follow up on first?</h1>
+    <div class="sub">Capabilities 2–4 run on the real dataset; Capability 7 (explanation) is a deterministic template. Capability 8 (Q&amp;A) is not yet implemented. See dashboard/dashboard-blueprint.md.</div>
+  </header>
+
+  <!-- Panel A: Priority Follow-Up List -->
+  <section class="panel" id="panel-priority">
+    <span class="panel-tag">Capability 4 · Fixed pipeline</span>
+    <h2>Priority Follow-Up List</h2>
+    <p class="panel-question">Which centres show repeated non-compliance and the strongest enforcement actions on record, right now?</p>
+
+    <!-- Panel B: Scope Filter — a control on Panel A, not a separate analytical panel -->
+    <div class="filter-bar" id="filter-bar">
+      <div class="filter-field">
+        <label for="f-city">City</label>
+        <select id="f-city">
+          <option value="">All cities</option>
+        </select>
+      </div>
+      <div class="filter-field">
+        <label for="f-type">Type of Program</label>
+        <select id="f-type">
+          <option value="">All types</option>
+          <option>FACILITY-BASED PROGRAM</option>
+          <option>FAMILY DAY HOME</option>
+          <option>GROUP FAMILY CHILD CARE PROGRAM</option>
+          <option>INNOVATIVE CHILD CARE PROGRAM</option>
+        </select>
+      </div>
+      <div class="filter-field">
+        <label>Service type</label>
+        <div class="filter-checks">
+          <label><input type="checkbox" id="f-daycare" /> Day Care</label>
+          <label><input type="checkbox" id="f-oosc" /> Out of School Care</label>
+          <label><input type="checkbox" id="f-preschool" /> Preschool</label>
+        </div>
+      </div>
+      <button class="filter-reset" id="f-reset">Reset filters</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Centre</th>
+          <th>City</th>
+          <th>Non-Compliance Citations</th>
+          <th>Visits with a Citation</th>
+          <th>Highest Enforcement Action</th>
+          <th>Most Recent Inspection</th>
+        </tr>
+      </thead>
+      <tbody id="priority-tbody"></tbody>
+    </table>
+
+    <div class="legend" id="priority-legend"></div>
+    <p class="caption" id="priority-count-caption"></p>
+    <div class="filter-bar" style="border-bottom:none; padding-bottom:0; margin-bottom:6px;">
+      <button class="filter-reset" id="priority-view-more">View more</button>
+      <button class="filter-reset" id="priority-show-all">Show all</button>
+      <button class="filter-reset" id="priority-back-to-top">Back to top 10</button>
+    </div>
+    <p class="caption" id="ranking-caption">Priority order: repeated non-compliance citations first, then recorded enforcement action, then most recent inspection as a tiebreaker.</p>
+    <p class="caption">
+      This is a deterministic triage order, not a risk score or prediction. Final follow-up decisions
+      remain with the program manager. See <code>eval/final-ranking-recommendation.md</code> and
+      <code>logs/ranking-governance-decision.md</code> for how this order was chosen.
+    </p>
+  </section>
+
+  <!-- Panel C: Follow-Up Gaps After Enforcement -->
+  <section class="panel" id="panel-gaps">
+    <span class="panel-tag">Capability 6 · Fixed pipeline</span>
+    <h2>Follow-Up Gaps After Enforcement</h2>
+    <p class="panel-question">Which centres had an enforcement action with a remedy date on record, but no later inspection shows up since?</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Centre</th>
+          <th>City</th>
+          <th>Enforcement Action</th>
+          <th>Remedy Date</th>
+          <th>Most Recent Inspection Since</th>
+        </tr>
+      </thead>
+      <tbody id="gaps-tbody"></tbody>
+    </table>
+    <p class="caption" id="gaps-caption"></p>
+    <div class="filter-bar" style="border-bottom:none; padding-bottom:0; margin-bottom:6px;">
+      <button class="filter-reset" id="gaps-view-more">View more</button>
+      <button class="filter-reset" id="gaps-show-all">Show all</button>
+      <button class="filter-reset" id="gaps-back-to-top">Back to top 10</button>
+    </div>
+    <p class="caption">
+      This reports an observed absence in the record — no inspection row after the remedy date for that
+      centre. It does not claim the underlying issue is open, closed, or resolved.
+    </p>
+  </section>
+
+  <!-- Panel D: Why This Centre Is Prioritized — appears only once a centre is selected -->
+  <section class="panel" id="panel-explain">
+    <span class="panel-tag">Capability 7 · Deterministic template (implemented)</span>
+    <h2>Why This Centre Is Prioritized</h2>
+    <p class="panel-question">For the centre selected above, what actually happened that put it on this list?</p>
+    <div id="explain-body"></div>
+  </section>
+  <p class="caption" id="explain-hint" style="margin: -8px 0 18px;">
+    Select a centre from the Priority Follow-Up List or the Follow-Up Gaps table above to see its
+    recorded history here.
+  </p>
+
+  <!-- Panel E: Ask About a Centre or the Ranking -->
+  <section class="panel" id="panel-ask">
+    <span class="panel-tag">Capability 8 · Subagent (not yet implemented)</span>
+    <h2>Ask About a Centre or the Ranking</h2>
+    <p class="panel-question">Any specific follow-up question not already answered by a panel above.</p>
+    <div class="ask-box">
+      <textarea id="ask-input" placeholder="e.g. Has anything changed for this centre since last cycle? (DEMO — not a live subagent yet)"></textarea>
+      <button id="ask-submit">Ask</button>
+    </div>
+    <div class="ask-log" id="ask-log"></div>
+  </section>
+
+  <footer class="next-step">
+    dashboard/index.html · Capabilities 2–4 run on the real dataset · grounded in
+    dashboard/dashboard-blueprint.md and CLAUDE.md
+  </footer>
+</div>
+
+<script src="../data/processed/dashboard-data.js"></script>
+<script>
+  // ---------------------------------------------------------------------
+  // Real data, loaded from data/processed/dashboard-data.js, which is
+  // generated by scripts/build_centre_summary.py from the actual CSV
+  // (Capabilities 2-4: normalize, aggregate, rank candidates). Panel D
+  // (Capability 7) is implemented below as a deterministic template over
+  // the aggregated facts only -- no LLM call. Panel E (Capability 8) remains
+  // NOT YET IMPLEMENTED.
+  // ---------------------------------------------------------------------
+
+  const DATA = window.DASHBOARD_DATA || { audit: {}, centres: [], gaps: [] };
+  const CENTRES = DATA.centres;
+  const GAPS = DATA.gaps;
+  const AUDIT = DATA.audit;
+
+  // Same fixed escalation order used by scripts/build_centre_summary.py.
+  // Used only to sort and to pick a badge tier — never shown as a numeric score.
+  const ENFORCEMENT_ORDER = [
+    "NONE",
+    "NOTICE OF NON-COMPLIANCE",
+    "ORDER TO REMEDY",
+    "VARIATION OF LICENCE PROVISIONS",
+    "CONDITIONS ON LICENCE",
+    "PROBATIONARY LICENCE",
+    "LICENCE SUSPENSION",
+    "LICENCE CANCELLATION"
+  ];
+
+  function tierFor(action) {
+    const idx = ENFORCEMENT_ORDER.indexOf(action || "NONE");
+    if (idx <= 0) return "none";
+    if (idx <= 2) return "warning";
+    if (idx <= 4) return "serious";
+    return "critical";
+  }
+
+  function badgeHtml(action) {
+    const tier = tierFor(action);
+    const label = (!action || action === "NONE") ? "No enforcement action on record" : action;
+    return `<span class="badge tier-${tier}"><span class="dot"></span>${label}</span>`;
+  }
+
+  function renderLegend() {
+    document.getElementById("priority-legend").innerHTML = `
+      <span><span class="dot" style="background:var(--status-neutral)"></span>None on record</span>
+      <span><span class="dot" style="background:var(--status-warning)"></span>Notice / Order to Remedy</span>
+      <span><span class="dot" style="background:var(--status-serious)"></span>Variation / Conditions / Probationary</span>
+      <span><span class="dot" style="background:var(--status-critical)"></span>Suspension / Cancellation</span>
+    `;
+  }
+
+  function renderBanner() {
+    const banner = document.getElementById("data-status-banner");
+    const note = document.getElementById("audit-note");
+    if (!AUDIT || !AUDIT.inspection_date_range) {
+      banner.textContent = "Could not load data/processed/dashboard-data.js — run scripts/build_centre_summary.py first.";
+      return;
+    }
+    banner.innerHTML = `REAL DATA (Panels A, C &amp; D) — data as of the most recent recorded inspection in the
+      extract: <strong>${AUDIT.inspection_date_range.max}</strong>. Panel D's explanation is a deterministic
+      template over these facts, not an LLM. Panel E below is still a placeholder — Capability 8 is not yet implemented.`;
+    note.innerHTML = `Audit: ${AUDIT.raw_row_count.toLocaleString()} raw rows ·
+      ${AUDIT.exact_duplicate_rows_removed} exact duplicate rows removed ·
+      ${AUDIT.unique_program_ids.toLocaleString()} unique centres ·
+      inspection dates ${AUDIT.inspection_date_range.min} to ${AUDIT.inspection_date_range.max}
+      (data/processed/pipeline-audit.json).`;
+  }
+
+  function populateCityOptions() {
+    const select = document.getElementById("f-city");
+    const cities = Array.from(new Set(CENTRES.map(c => c.program_city).filter(Boolean))).sort();
+    cities.forEach(city => {
+      const opt = document.createElement("option");
+      opt.value = city;
+      opt.textContent = city;
+      select.appendChild(opt);
+    });
+  }
+
+  function currentFilters() {
+    return {
+      city: document.getElementById("f-city").value,
+      type: document.getElementById("f-type").value,
+      dayCare: document.getElementById("f-daycare").checked,
+      oosc: document.getElementById("f-oosc").checked,
+      preschool: document.getElementById("f-preschool").checked
+    };
+  }
+
+  function applyFilters(list) {
+    const f = currentFilters();
+    return list.filter(c => {
+      if (f.city && c.program_city !== f.city) return false;
+      if (f.type && c.type_of_program !== f.type) return false;
+      if (f.dayCare && !c.day_care) return false;
+      if (f.oosc && !c.out_of_school_care) return false;
+      if (f.preschool && !c.preschool) return false;
+      return true;
+    });
+  }
+
+  // Production ranking (Candidate B, approved via eval/final-ranking-recommendation.md
+  // and logs/ranking-governance-decision.md): centres arrive from
+  // data/processed/dashboard-data.js already ordered by production_rank
+  // (total_non_compliance_citations desc, then highest recorded Enforcement
+  // Action desc, then most_recent_inspection_date desc as a tiebreaker only).
+  // Filtering below preserves that order -- no client-side sort is applied.
+
+  let selectedId = null;
+
+  // Decision-first display limits: both panels start collapsed to the top 10
+  // and only expand on explicit user action. Reset to 10 whenever a filter
+  // or ranking candidate changes (handled in the change listeners below).
+  const PRIORITY_PAGE_SIZE = 10;
+  const GAPS_PAGE_SIZE = 10;
+  let priorityDisplayLimit = PRIORITY_PAGE_SIZE;
+  let gapsDisplayLimit = GAPS_PAGE_SIZE;
+
+  function isActionable(c) {
+    return c.total_non_compliance_citations > 0 || c.highest_enforcement_action !== "NONE";
+  }
+
+  function renderPriorityTable() {
+    // CENTRES already arrives pre-sorted by production_rank (Candidate B);
+    // filtering preserves that order, so no sort happens here.
+    const allMatching = applyFilters(CENTRES).filter(isActionable);
+    const total = allMatching.length;
+    const shownCount = Math.min(priorityDisplayLimit, total);
+    const filtered = allMatching.slice(0, shownCount);
+
+    document.getElementById("priority-count-caption").textContent =
+      `Showing top ${shownCount} of ${total} centres matching the current filters.`;
+
+    document.getElementById("priority-view-more").style.display = shownCount < total ? "inline-block" : "none";
+    document.getElementById("priority-show-all").style.display = shownCount < total ? "inline-block" : "none";
+    document.getElementById("priority-back-to-top").style.display = priorityDisplayLimit > PRIORITY_PAGE_SIZE ? "inline-block" : "none";
+
+    const tbody = document.getElementById("priority-tbody");
+    tbody.innerHTML = "";
+    filtered.forEach((c, i) => {
+      const tr = document.createElement("tr");
+      tr.className = "row-clickable" + (c.program_id === selectedId ? " row-selected" : "");
+      tr.innerHTML = `
+        <td>${i + 1}</td>
+        <td>${c.program_name || "(name not on record)"}</td>
+        <td>${c.program_city || ""}</td>
+        <td>${c.total_non_compliance_citations}</td>
+        <td>${c.visits_with_non_compliance}</td>
+        <td>${badgeHtml(c.highest_enforcement_action)}</td>
+        <td>${c.most_recent_inspection_date || "—"}</td>
+      `;
+      tr.addEventListener("click", () => selectCentre(c.program_id));
+      tbody.appendChild(tr);
+    });
+
+    if (filtered.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="7" style="color:var(--text-muted)">No actionable centres match the current filters.</td></tr>`;
+    }
+  }
+
+  document.getElementById("priority-view-more").addEventListener("click", () => {
+    priorityDisplayLimit += PRIORITY_PAGE_SIZE;
+    renderPriorityTable();
+  });
+  document.getElementById("priority-show-all").addEventListener("click", () => {
+    priorityDisplayLimit = Infinity;
+    renderPriorityTable();
+  });
+  document.getElementById("priority-back-to-top").addEventListener("click", () => {
+    priorityDisplayLimit = PRIORITY_PAGE_SIZE;
+    renderPriorityTable();
+  });
+
+  function renderGapsTable() {
+    const f = currentFilters();
+    const byId = new Map(CENTRES.map(c => [c.program_id, c]));
+    const matching = GAPS.filter(g => {
+      const c = byId.get(g.program_id);
+      if (!c) return false;
+      if (f.city && c.program_city !== f.city) return false;
+      if (f.type && c.type_of_program !== f.type) return false;
+      if (f.dayCare && !c.day_care) return false;
+      if (f.oosc && !c.out_of_school_care) return false;
+      if (f.preschool && !c.preschool) return false;
+      return true;
+    }).slice().sort((a, b) => (b.remedy_date || "").localeCompare(a.remedy_date || ""));
+
+    const total = matching.length;
+    const shownCount = Math.min(gapsDisplayLimit, total);
+    const shown = matching.slice(0, shownCount);
+
+    const tbody = document.getElementById("gaps-tbody");
+    tbody.innerHTML = "";
+    shown.forEach(g => {
+      const tr = document.createElement("tr");
+      tr.className = "row-clickable" + (g.program_id === selectedId ? " row-selected" : "");
+      tr.innerHTML = `
+        <td>${g.program_name || "(name not on record)"}</td>
+        <td>${g.program_city || ""}</td>
+        <td>${badgeHtml(g.enforcement_action)}</td>
+        <td>${g.remedy_date}</td>
+        <td>${g.most_recent_inspection_date_overall || "—"}</td>
+      `;
+      tr.addEventListener("click", () => selectCentre(g.program_id));
+      tbody.appendChild(tr);
+    });
+    if (shown.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="5" style="color:var(--text-muted)">No centres with an observed follow-up gap match the current filters.</td></tr>`;
+    }
+
+    document.getElementById("gaps-caption").textContent =
+      `Showing ${shownCount} of ${total} observed record gaps.`;
+
+    document.getElementById("gaps-view-more").style.display = shownCount < total ? "inline-block" : "none";
+    document.getElementById("gaps-show-all").style.display = shownCount < total ? "inline-block" : "none";
+    document.getElementById("gaps-back-to-top").style.display = gapsDisplayLimit > GAPS_PAGE_SIZE ? "inline-block" : "none";
+  }
+
+  document.getElementById("gaps-view-more").addEventListener("click", () => {
+    gapsDisplayLimit += GAPS_PAGE_SIZE;
+    renderGapsTable();
+  });
+  document.getElementById("gaps-show-all").addEventListener("click", () => {
+    gapsDisplayLimit = Infinity;
+    renderGapsTable();
+  });
+  document.getElementById("gaps-back-to-top").addEventListener("click", () => {
+    gapsDisplayLimit = GAPS_PAGE_SIZE;
+    renderGapsTable();
+  });
+
+  // Capability 7 -- Explain why a centre is prioritized. Deterministic
+  // template only: no LLM call, no field beyond the aggregated facts already
+  // in CENTRES, no invented severity/risk/probability/prediction/
+  // recommendation/legal conclusion/inspector decision/resolved-status
+  // language. Recomputed fresh every time a different centre is selected.
+  function buildCentreExplanation(c) {
+    const name = c.program_name || "This centre";
+    const hasCitations = c.total_non_compliance_citations > 0;
+    const hasEnforcement = !!c.highest_enforcement_action && c.highest_enforcement_action !== "NONE";
+
+    // 1. Opening sentence -- why the centre appears near the top of the list.
+    let opening;
+    if (hasCitations && hasEnforcement) {
+      opening = `${name} appears near the top of the Priority Follow-Up List` +
+        (typeof c.production_rank === "number" ? ` (currently ranked #${c.production_rank})` : "") +
+        ` because its recorded inspection history includes ${c.total_non_compliance_citations} non-compliance citation(s) and a highest recorded enforcement action of ${c.highest_enforcement_action}.`;
+    } else if (hasCitations) {
+      opening = `${name} appears in the Priority Follow-Up List` +
+        (typeof c.production_rank === "number" ? ` (currently ranked #${c.production_rank})` : "") +
+        ` because its recorded inspection history includes ${c.total_non_compliance_citations} non-compliance citation(s).`;
+    } else if (hasEnforcement) {
+      opening = `${name} appears in the Priority Follow-Up List` +
+        (typeof c.production_rank === "number" ? ` (currently ranked #${c.production_rank})` : "") +
+        ` because its recorded inspection history includes a highest recorded enforcement action of ${c.highest_enforcement_action}.`;
+    } else {
+      opening = `${name} has no recorded non-compliance citations and no enforcement action on record.`;
+    }
+
+    // 2. Supporting facts -- repeated non-compliance, enforcement action, inspection history, complaint/incident history.
+    const facts = [];
+
+    if (hasCitations) {
+      facts.push(`Across ${c.total_inspection_visits} recorded inspection visit(s), ${c.visits_with_non_compliance} visit(s) resulted in at least one non-compliance citation, for ${c.total_non_compliance_citations} citation(s) on record in total.`);
+    } else {
+      facts.push(`Across ${c.total_inspection_visits} recorded inspection visit(s), none resulted in a non-compliance citation.`);
+    }
+
+    facts.push(hasEnforcement
+      ? `The highest enforcement action on record for this centre is ${c.highest_enforcement_action}.`
+      : `No enforcement action is on record for this centre.`);
+
+    facts.push(c.most_recent_non_compliance_date
+      ? `The most recent recorded inspection was on ${c.most_recent_inspection_date || "an unrecorded date"}, and the most recent recorded non-compliance citation was on ${c.most_recent_non_compliance_date}.`
+      : `The most recent recorded inspection was on ${c.most_recent_inspection_date || "an unrecorded date"}, with no non-compliance citation on record.`);
+
+    const reactive = [];
+    if (c.complaint_investigation_visits > 0) reactive.push(`${c.complaint_investigation_visits} complaint investigation visit(s)`);
+    if (c.incident_report_visits > 0) reactive.push(`${c.incident_report_visits} incident report visit(s)`);
+    if (c.critical_incident_report_visits > 0) reactive.push(`${c.critical_incident_report_visits} critical incident report visit(s)`);
+    if (c.follow_up_to_enforcement_visits > 0) reactive.push(`${c.follow_up_to_enforcement_visits} follow-up-to-enforcement visit(s)`);
+    if (reactive.length > 0) {
+      facts.push(`The recorded inspection history for this centre also includes ${reactive.join(", ")}.`);
+    }
+
+    // 3. Fixed limitation sentence -- required verbatim, every time.
+    const limitation = "This explanation summarizes the recorded inspection history only. Final follow-up decisions remain with the program manager.";
+
+    return `
+      <p>${opening}</p>
+      <p>${facts.join(" ")}</p>
+      <p class="caption">${limitation}</p>
+    `;
+  }
+
+  function selectCentre(id) {
+    selectedId = id;
+    const c = CENTRES.find(x => x.program_id === id);
+    const panel = document.getElementById("panel-explain");
+    const hint = document.getElementById("explain-hint");
+    const body = document.getElementById("explain-body");
+
+    panel.classList.add("visible");
+    hint.style.display = "none";
+
+    if (!c) {
+      body.innerHTML = `
+        <div class="explain-header">
+          <span class="name">Unknown centre</span>
+          <button class="close-btn" id="explain-close">Close</button>
+        </div>
+        <p class="explain-placeholder">No aggregated record found for this centre.</p>`;
+    } else {
+      body.innerHTML = `
+        <div class="explain-header">
+          <span class="name">${c.program_name || "(name not on record)"}</span>
+          <button class="close-btn" id="explain-close">Close</button>
+        </div>
+        ${buildCentreExplanation(c)}
+        <div class="history-row">
+          <div>City</div><div class="reason">${c.program_city || "—"}</div>
+          <div class="nc">Type of Program</div><div>${c.type_of_program || "—"}</div>
+        </div>
+        <div class="history-row">
+          <div>Total visits</div><div class="reason">${c.total_inspection_visits}</div>
+          <div class="nc">Non-compliance citations</div><div>${c.total_non_compliance_citations}</div>
+        </div>
+        <div class="history-row">
+          <div>Visits with a citation</div><div class="reason">${c.visits_with_non_compliance}</div>
+          <div class="nc">Highest enforcement action</div><div>${badgeHtml(c.highest_enforcement_action)}</div>
+        </div>
+        <div class="history-row">
+          <div>Most recent inspection</div><div class="reason">${c.most_recent_inspection_date || "—"}</div>
+          <div class="nc">Most recent citation</div><div>${c.most_recent_non_compliance_date || "—"}</div>
+        </div>
+        <div class="history-row">
+          <div>Complaint / Incident / Critical / Follow-up visits</div>
+          <div class="reason" style="grid-column: span 3;">
+            ${c.complaint_investigation_visits} complaint · ${c.incident_report_visits} incident ·
+            ${c.critical_incident_report_visits} critical incident · ${c.follow_up_to_enforcement_visits} follow-up
+          </div>
+        </div>
+      `;
+    }
+
+    document.getElementById("explain-close").addEventListener("click", () => {
+      selectedId = null;
+      panel.classList.remove("visible");
+      hint.style.display = "block";
+      renderPriorityTable();
+      renderGapsTable();
+    });
+
+    renderPriorityTable();
+    renderGapsTable();
+    panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  // Panel B: filters re-render Panel A and Panel C, not a separate view.
+  // Any filter change collapses both panels back to their top-10 default.
+  ["f-city", "f-type", "f-daycare", "f-oosc", "f-preschool"].forEach(id => {
+    document.getElementById(id).addEventListener("change", () => {
+      priorityDisplayLimit = PRIORITY_PAGE_SIZE;
+      gapsDisplayLimit = GAPS_PAGE_SIZE;
+      renderPriorityTable();
+      renderGapsTable();
+    });
+  });
+  document.getElementById("f-reset").addEventListener("click", () => {
+    document.getElementById("f-city").value = "";
+    document.getElementById("f-type").value = "";
+    document.getElementById("f-daycare").checked = false;
+    document.getElementById("f-oosc").checked = false;
+    document.getElementById("f-preschool").checked = false;
+    priorityDisplayLimit = PRIORITY_PAGE_SIZE;
+    gapsDisplayLimit = GAPS_PAGE_SIZE;
+    renderPriorityTable();
+    renderGapsTable();
+  });
+
+  // Panel E: Q&A is a static placeholder response, no live subagent (Capability 8 not yet implemented)
+  document.getElementById("ask-submit").addEventListener("click", () => {
+    const input = document.getElementById("ask-input");
+    const q = input.value.trim();
+    if (!q) return;
+    const log = document.getElementById("ask-log");
+    const selectedC = selectedId ? CENTRES.find(x => x.program_id === selectedId) : null;
+    const bubble = document.createElement("div");
+    bubble.className = "ask-bubble";
+    bubble.innerHTML = `
+      <div class="q">${q}</div>
+      <div class="a">NOT YET IMPLEMENTED. ${selectedC ? `(Selected centre: ${selectedC.program_name}.) ` : ""}
+      In the finished tool, Capability 8 will answer this from the data already shown on this page —
+      no live subagent is connected yet.</div>
+    `;
+    log.prepend(bubble);
+    input.value = "";
+  });
+
+  renderBanner();
+  renderLegend();
+  populateCityOptions();
+  renderPriorityTable();
+  renderGapsTable();
+</script>

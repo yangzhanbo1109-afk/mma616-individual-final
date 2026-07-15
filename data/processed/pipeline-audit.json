@@ -1,0 +1,34 @@
+{
+  "source_file": "data/raw/child-care-open-data-202512.csv",
+  "raw_row_count": 15772,
+  "exact_duplicate_rows_removed": 135,
+  "rows_after_deduplication": 15637,
+  "rows_excluded_missing_inspection_date": 39,
+  "rows_used_in_aggregation": 15598,
+  "unique_program_ids": 2913,
+  "program_ids_with_multiple_program_names_resolved": 1,
+  "inspection_date_range": {
+    "min": "2024-07-02",
+    "max": "2025-12-23"
+  },
+  "follow_up_gap_count": 533,
+  "production_ranking": {
+    "candidate": "b",
+    "sort_order": [
+      "total_non_compliance_citations descending",
+      "highest_enforcement_action by the recorded enforcement action order, descending",
+      "most_recent_inspection_date descending (final tiebreaker only)"
+    ],
+    "approved_via": [
+      "eval/final-ranking-recommendation.md",
+      "logs/ranking-governance-decision.md"
+    ]
+  },
+  "notes": [
+    "Literal 'NULL' strings and blank strings are both treated as missing values.",
+    "Program identity is keyed on Program ID; Program Name is resolved to the name recorded on the most recent dated row when a Program ID has more than one name.",
+    "Rows with a missing Inspection Date cannot be assigned to a visit and are excluded from all visit-based counts, recency, and ranking calculations.",
+    "highest_enforcement_rank is a position in the existing Enforcement Action category order (the recorded enforcement action order, see ENFORCEMENT_ORDER) -- it is not an official severity scale or a computed score.",
+    "centre_summary.json is ordered by the approved PRODUCTION ranking, Candidate B, and each row carries its production_rank. Candidates A and C are retained in ranking-candidates.json as evaluation-only artifacts; they do not drive this order."
+  ]
+}

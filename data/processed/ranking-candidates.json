@@ -1,0 +1,621 @@
+{
+  "production_candidate": "b",
+  "candidate_a": {
+    "label": "Highest recorded Enforcement Action first, then repeated non-compliance count, then recency",
+    "role": "evaluation_only",
+    "top_20": [
+      {
+        "rank": 1,
+        "program_id": "E4B68EA98A793C6656952648F0C031EF",
+        "program_name": "LITTLE SCHOLARS DAYCARE ECS LTD.",
+        "program_city": "CALGARY",
+        "total_non_compliance_citations": 13,
+        "visits_with_non_compliance": 4,
+        "highest_enforcement_action": "LICENCE CANCELLATION",
+        "most_recent_inspection_date": "2025-12-02"
+      },
+      {
+        "rank": 2,
+        "program_id": "8AE79BD04ECBB011A14C014A0810E7DD",
+        "program_name": "LITTLE SCHOLARS DAYCARE INC.",
+        "program_city": "CALGARY",
+        "total_non_compliance_citations": 10,
+        "visits_with_non_compliance": 2,
+        "highest_enforcement_action": "LICENCE CANCELLATION",
+        "most_recent_inspection_date": "2025-12-02"
+      },
+      {
+        "rank": 3,
+        "program_id": "CFBE56253A0BBEA85A37B99D1F2C7583",
+        "program_name": "HINTON CHILDREN'S LEARNING CENTRE",
+        "program_city": "HINTON",
+        "total_non_compliance_citations": 26,
+        "visits_with_non_compliance": 9,
+        "highest_enforcement_action": "LICENCE SUSPENSION",
+        "most_recent_inspection_date": "2025-12-09"
+      },
+      {
+        "rank": 4,
+        "program_id": "F9041A24D71F9932BF3537C1DF71883E",
+        "program_name": "HAPPY HOUSE DAYCARE (SOUTH)",
+        "program_city": "COLD LAKE",
+        "total_non_compliance_citations": 19,
+        "visits_with_non_compliance": 7,
+        "highest_enforcement_action": "LICENCE SUSPENSION",
+        "most_recent_inspection_date": "2025-12-10"
+      },
+      {
+        "rank": 5,
+        "program_id": "CAAA70EDA3369724C2E10D7A3915C7AB",
+        "program_name": "ZEBRA CROSSING ACADEMY",
+        "program_city": "CALGARY",
+        "total_non_compliance_citations": 14,
+        "visits_with_non_compliance": 6,
+        "highest_enforcement_action": "LICENCE SUSPENSION",
+        "most_recent_inspection_date": "2025-12-15"
+      },
+      {
+        "rank": 6,
+        "program_id": "11931938A528B524ACB3E97D549C309F",
+        "program_name": "ST. ALBERT DAY CARE CENTRE",
+        "program_city": "ST. ALBERT",
+        "total_non_compliance_citations": 11,
+        "visits_with_non_compliance": 8,
+        "highest_enforcement_action": "LICENCE SUSPENSION",
+        "most_recent_inspection_date": "2025-11-26"
+      },
+      {
+        "rank": 7,
+        "program_id": "64C5505373197913673400E1ED1810D9",
+        "program_name": "PACESETTERS EARLY LEARNING AND CHILDCARE CENTRE",
+        "program_city": "FORT MCMURRAY",
+        "total_non_compliance_citations": 3,
+        "visits_with_non_compliance": 1,
+        "highest_enforcement_action": "LICENCE SUSPENSION",
+        "most_recent_inspection_date": "2025-09-19"
+      },
+      {
+        "rank": 8,
+        "program_id": "AEAFC18392D8298FABB37C9996E4D1F3",
+        "program_name": "LITTLE STARS MONTESSORI EARLY LEARNING CENTER",
+        "program_city": "SPRUCE GROVE",
+        "total_non_compliance_citations": 44,
+        "visits_with_non_compliance": 11,
+        "highest_enforcement_action": "PROBATIONARY LICENCE",
+        "most_recent_inspection_date": "2025-11-03"
+      },
+      {
+        "rank": 9,
+        "program_id": "AEEC13635A2621C5545A766F8C0E85E9",
+        "program_name": "PLAY 'N' FUN DAY CARE LTD.",
+        "program_city": "EDMONTON",
+        "total_non_compliance_citations": 35,
+        "visits_with_non_compliance": 14,
+        "highest_enforcement_action": "PROBATIONARY LICENCE",
+        "most_recent_inspection_date": "2025-09-17"
+      },
+      {
+        "rank": 10,
+        "program_id": "AD09E37B8BCADE0E07DB5A9A0BB16857",
+        "program_name": "ALOTTA FUN CHILDCARE OSC",
+        "program_city": "EDMONTON",
+        "total_non_compliance_citations": 18,
+        "visits_with_non_compliance": 5,
+        "highest_enforcement_action": "PROBATIONARY LICENCE",
+        "most_recent_inspection_date": "2025-10-09"
+      },
+      {
+        "rank": 11,
+        "program_id": "B5A39CCC369E6057F2C0F36C78AC9031",
+        "program_name": "CLEARWATER DAYCARE AND OUT OF SCHOOL CARE",
+        "program_city": "EDMONTON",
+        "total_non_compliance_citations": 12,
+        "visits_with_non_compliance": 5,
+        "highest_enforcement_action": "PROBATIONARY LICENCE",
+        "most_recent_inspection_date": "2025-12-03"
+      },
+      {
+        "rank": 12,
+        "program_id": "FB40EA16AF3F23D1ACD0DE05867F04A1",
+        "program_name": "KLORIOUS KIDS DAYCARE",
+        "program_city": "FORT MCMURRAY",
+        "total_non_compliance_citations": 6,
+        "visits_with_non_compliance": 2,
+        "highest_enforcement_action": "PROBATIONARY LICENCE",
+        "most_recent_inspection_date": "2025-11-06"
+      },
+      {
+        "rank": 13,
+        "program_id": "D08E50C9A33D554923412A9608AA09EF",
+        "program_name": "LAMONT DAYCARE",
+        "program_city": "LAMONT",
+        "total_non_compliance_citations": 5,
+        "visits_with_non_compliance": 3,
+        "highest_enforcement_action": "PROBATIONARY LICENCE",
+        "most_recent_inspection_date": "2025-10-15"
+      },
+      {
+        "rank": 14,
+        "program_id": "9308C5EF50C1065F5ED64E4933BB86FA",
+        "program_name": "MILESTONES DAYCARE AND EARLY LEARNING",
+        "program_city": "CALGARY",
+        "total_non_compliance_citations": 22,
+        "visits_with_non_compliance": 6,
+        "highest_enforcement_action": "CONDITIONS ON LICENCE",
+        "most_recent_inspection_date": "2025-11-17"
+      },
+      {
+        "rank": 15,
+        "program_id": "258293EBA4D13CD29B456ACB9B371372",
+        "program_name": "SUMMIT KIDS - NELLIE",
+        "program_city": "CALGARY",
+        "total_non_compliance_citations": 8,
+        "visits_with_non_compliance": 2,
+        "highest_enforcement_action": "CONDITIONS ON LICENCE",
+        "most_recent_inspection_date": "2025-09-26"
+      },
+      {
+        "rank": 16,
+        "program_id": "EA5698B525485AA16EEC77CFF121D9E0",
+        "program_name": "WING KEI MONTESSORI SCHOOL",
+        "program_city": "CALGARY",
+        "total_non_compliance_citations": 7,
+        "visits_with_non_compliance": 1,
+        "highest_enforcement_action": "CONDITIONS ON LICENCE",
+        "most_recent_inspection_date": "2025-10-03"
+      },
+      {
+        "rank": 17,
+        "program_id": "9D78D8E4D83D30033E7071EBE087CCA2",
+        "program_name": "KIDS R FUN DAYCARE",
+        "program_city": "CALGARY",
+        "total_non_compliance_citations": 6,
+        "visits_with_non_compliance": 3,
+        "highest_enforcement_action": "CONDITIONS ON LICENCE",
+        "most_recent_inspection_date": "2025-10-21"
+      },
+      {
+        "rank": 18,
+        "program_id": "7CAE8F43B2ED9C94B53351E2E50FACB8",
+        "program_name": "WHIMSY CHILDCARE",
+        "program_city": "COLD LAKE",
+        "total_non_compliance_citations": 5,
+        "visits_with_non_compliance": 2,
+        "highest_enforcement_action": "CONDITIONS ON LICENCE",
+        "most_recent_inspection_date": "2025-11-25"
+      },
+      {
+        "rank": 19,
+        "program_id": "1F10CF8C685C94F12EFA32E18E03B821",
+        "program_name": "LITTLE M-DESTINY PRESCHOOL & DAYCARE LTD",
+        "program_city": "OLDS",
+        "total_non_compliance_citations": 1,
+        "visits_with_non_compliance": 1,
+        "highest_enforcement_action": "CONDITIONS ON LICENCE",
+        "most_recent_inspection_date": "2025-10-06"
+      },
+      {
+        "rank": 20,
+        "program_id": "CD47C8977E6876CE3E886857BA0E068E",
+        "program_name": "LEARN, LOVE 'N' LAUGH CHILD CARE CENTRE",
+        "program_city": "DEVON",
+        "total_non_compliance_citations": 1,
+        "visits_with_non_compliance": 1,
+        "highest_enforcement_action": "CONDITIONS ON LICENCE",
+        "most_recent_inspection_date": "2025-09-19"
+      }
+    ]
+  },
+  "candidate_b": {
+    "label": "Repeated non-compliance count first, then highest recorded Enforcement Action, then recency",
+    "role": "production",
+    "top_20": [
+      {
+        "rank": 1,
+        "program_id": "AEAFC18392D8298FABB37C9996E4D1F3",
+        "program_name": "LITTLE STARS MONTESSORI EARLY LEARNING CENTER",
+        "program_city": "SPRUCE GROVE",
+        "total_non_compliance_citations": 44,
+        "visits_with_non_compliance": 11,
+        "highest_enforcement_action": "PROBATIONARY LICENCE",
+        "most_recent_inspection_date": "2025-11-03"
+      },
+      {
+        "rank": 2,
+        "program_id": "AEEC13635A2621C5545A766F8C0E85E9",
+        "program_name": "PLAY 'N' FUN DAY CARE LTD.",
+        "program_city": "EDMONTON",
+        "total_non_compliance_citations": 35,
+        "visits_with_non_compliance": 14,
+        "highest_enforcement_action": "PROBATIONARY LICENCE",
+        "most_recent_inspection_date": "2025-09-17"
+      },
+      {
+        "rank": 3,
+        "program_id": "92901BA5A72F7CBDC262755036798C93",
+        "program_name": "INNER GARDEN BILINGUAL DAYHOME AGENCY",
+        "program_city": "CALGARY",
+        "total_non_compliance_citations": 34,
+        "visits_with_non_compliance": 10,
+        "highest_enforcement_action": "ORDER TO REMEDY",
+        "most_recent_inspection_date": "2025-11-17"
+      },
+      {
+        "rank": 4,
+        "program_id": "F5CB2F45A1804C2691511EA9CDA3672F",
+        "program_name": "CIRCLE SQUARE CHILDCARE",
+        "program_city": "RED DEER",
+        "total_non_compliance_citations": 28,
+        "visits_with_non_compliance": 6,
+        "highest_enforcement_action": "ORDER TO REMEDY",
+        "most_recent_inspection_date": "2025-10-17"
+      },
+      {
+        "rank": 5,
+        "program_id": "CFBE56253A0BBEA85A37B99D1F2C7583",
+        "program_name": "HINTON CHILDREN'S LEARNING CENTRE",
+        "program_city": "HINTON",
+        "total_non_compliance_citations": 26,
+        "visits_with_non_compliance": 9,
+        "highest_enforcement_action": "LICENCE SUSPENSION",
+        "most_recent_inspection_date": "2025-12-09"
+      },
+      {
+        "rank": 6,
+        "program_id": "2651DA553E592240DFB6A7B821D4ED96",
+        "program_name": "MILESTONES OUT OF SCHOOL CARE",
+        "program_city": "DEVON",
+        "total_non_compliance_citations": 23,
+        "visits_with_non_compliance": 2,
+        "highest_enforcement_action": "ORDER TO REMEDY",
+        "most_recent_inspection_date": "2025-11-13"
+      },
+      {
+        "rank": 7,
+        "program_id": "6C931AE79C7A5997C717D67D849CE5C5",
+        "program_name": "STEPPING STONE ACADEMY DEVELOPMENT CENTER HAMPTON LTD.",
+        "program_city": "EDMONTON",
+        "total_non_compliance_citations": 23,
+        "visits_with_non_compliance": 5,
+        "highest_enforcement_action": "ORDER TO REMEDY",
+        "most_recent_inspection_date": "2025-07-16"
+      },
+      {
+        "rank": 8,
+        "program_id": "9308C5EF50C1065F5ED64E4933BB86FA",
+        "program_name": "MILESTONES DAYCARE AND EARLY LEARNING",
+        "program_city": "CALGARY",
+        "total_non_compliance_citations": 22,
+        "visits_with_non_compliance": 6,
+        "highest_enforcement_action": "CONDITIONS ON LICENCE",
+        "most_recent_inspection_date": "2025-11-17"
+      },
+      {
+        "rank": 9,
+        "program_id": "8E09CA0DD696C5263CD20D6249EEDA3F",
+        "program_name": "CONNECTING DOTS-DAVE BARR",
+        "program_city": "GRANDE PRAIRIE",
+        "total_non_compliance_citations": 22,
+        "visits_with_non_compliance": 7,
+        "highest_enforcement_action": "VARIATION OF LICENCE PROVISIONS",
+        "most_recent_inspection_date": "2025-11-12"
+      },
+      {
+        "rank": 10,
+        "program_id": "83B3E3D63D396D816EE478C5B71ED3AB",
+        "program_name": "FUN KIDS CLUB CALGARY",
+        "program_city": "CALGARY",
+        "total_non_compliance_citations": 20,
+        "visits_with_non_compliance": 6,
+        "highest_enforcement_action": "ORDER TO REMEDY",
+        "most_recent_inspection_date": "2025-12-09"
+      },
+      {
+        "rank": 11,
+        "program_id": "F9041A24D71F9932BF3537C1DF71883E",
+        "program_name": "HAPPY HOUSE DAYCARE (SOUTH)",
+        "program_city": "COLD LAKE",
+        "total_non_compliance_citations": 19,
+        "visits_with_non_compliance": 7,
+        "highest_enforcement_action": "LICENCE SUSPENSION",
+        "most_recent_inspection_date": "2025-12-10"
+      },
+      {
+        "rank": 12,
+        "program_id": "61FFE16941E4F2BEFA94110A2F6607ED",
+        "program_name": "RISING PILLARS CHILDCARE",
+        "program_city": "CALGARY",
+        "total_non_compliance_citations": 19,
+        "visits_with_non_compliance": 7,
+        "highest_enforcement_action": "ORDER TO REMEDY",
+        "most_recent_inspection_date": "2025-12-04"
+      },
+      {
+        "rank": 13,
+        "program_id": "D3FAA4D9808512FB1F62580C0925D3E8",
+        "program_name": "THE CHILD CLUB DAYCARE",
+        "program_city": "STONY PLAIN",
+        "total_non_compliance_citations": 19,
+        "visits_with_non_compliance": 6,
+        "highest_enforcement_action": "ORDER TO REMEDY",
+        "most_recent_inspection_date": "2025-11-28"
+      },
+      {
+        "rank": 14,
+        "program_id": "AD09E37B8BCADE0E07DB5A9A0BB16857",
+        "program_name": "ALOTTA FUN CHILDCARE OSC",
+        "program_city": "EDMONTON",
+        "total_non_compliance_citations": 18,
+        "visits_with_non_compliance": 5,
+        "highest_enforcement_action": "PROBATIONARY LICENCE",
+        "most_recent_inspection_date": "2025-10-09"
+      },
+      {
+        "rank": 15,
+        "program_id": "14DF8DD274F0D035A4AB6734344FAD92",
+        "program_name": "BRIGHT STARS DAYCARE AND OSC",
+        "program_city": "EDMONTON",
+        "total_non_compliance_citations": 18,
+        "visits_with_non_compliance": 7,
+        "highest_enforcement_action": "ORDER TO REMEDY",
+        "most_recent_inspection_date": "2025-11-26"
+      },
+      {
+        "rank": 16,
+        "program_id": "DA0F21295B0C863EFB8F9532AB7CE9DB",
+        "program_name": "FUELING BRAINS ACADEMY WEST 85TH",
+        "program_city": "CALGARY",
+        "total_non_compliance_citations": 18,
+        "visits_with_non_compliance": 7,
+        "highest_enforcement_action": "ORDER TO REMEDY",
+        "most_recent_inspection_date": "2025-11-19"
+      },
+      {
+        "rank": 17,
+        "program_id": "BEC3C71B834E01A3352209E853BD14FD",
+        "program_name": "A2Z KIDZ ED.",
+        "program_city": "CALGARY",
+        "total_non_compliance_citations": 18,
+        "visits_with_non_compliance": 5,
+        "highest_enforcement_action": "ORDER TO REMEDY",
+        "most_recent_inspection_date": "2025-09-23"
+      },
+      {
+        "rank": 18,
+        "program_id": "F916B71EF3FF600FA6B67EFF96906B3A",
+        "program_name": "CREATIVE CHILDREN'S DAY CARE (2003) LTD.",
+        "program_city": "SPRUCE GROVE",
+        "total_non_compliance_citations": 18,
+        "visits_with_non_compliance": 6,
+        "highest_enforcement_action": "ORDER TO REMEDY",
+        "most_recent_inspection_date": "2025-08-13"
+      },
+      {
+        "rank": 19,
+        "program_id": "01CE8BD52FBD5371B6CC84715755DB9C",
+        "program_name": "ALBERTA CHILDREN PLACE DAYCARE",
+        "program_city": "COCHRANE",
+        "total_non_compliance_citations": 18,
+        "visits_with_non_compliance": 7,
+        "highest_enforcement_action": "ORDER TO REMEDY",
+        "most_recent_inspection_date": "2025-07-14"
+      },
+      {
+        "rank": 20,
+        "program_id": "66201FBCDC90E694095C76249883EF42",
+        "program_name": "TLC DAYCARE",
+        "program_city": "ST. PAUL",
+        "total_non_compliance_citations": 17,
+        "visits_with_non_compliance": 9,
+        "highest_enforcement_action": "VARIATION OF LICENCE PROVISIONS",
+        "most_recent_inspection_date": "2025-12-16"
+      }
+    ]
+  },
+  "candidate_c": {
+    "label": "Visits with non-compliance first, then highest recorded Enforcement Action, then recency",
+    "role": "evaluation_only",
+    "top_20": [
+      {
+        "rank": 1,
+        "program_id": "AEEC13635A2621C5545A766F8C0E85E9",
+        "program_name": "PLAY 'N' FUN DAY CARE LTD.",
+        "program_city": "EDMONTON",
+        "total_non_compliance_citations": 35,
+        "visits_with_non_compliance": 14,
+        "highest_enforcement_action": "PROBATIONARY LICENCE",
+        "most_recent_inspection_date": "2025-09-17"
+      },
+      {
+        "rank": 2,
+        "program_id": "145EAF02E163BC8011BBF6F577284485",
+        "program_name": "BRIGHTPATH WINDERMERE",
+        "program_city": "EDMONTON",
+        "total_non_compliance_citations": 16,
+        "visits_with_non_compliance": 12,
+        "highest_enforcement_action": "ORDER TO REMEDY",
+        "most_recent_inspection_date": "2025-12-11"
+      },
+      {
+        "rank": 3,
+        "program_id": "AEAFC18392D8298FABB37C9996E4D1F3",
+        "program_name": "LITTLE STARS MONTESSORI EARLY LEARNING CENTER",
+        "program_city": "SPRUCE GROVE",
+        "total_non_compliance_citations": 44,
+        "visits_with_non_compliance": 11,
+        "highest_enforcement_action": "PROBATIONARY LICENCE",
+        "most_recent_inspection_date": "2025-11-03"
+      },
+      {
+        "rank": 4,
+        "program_id": "92901BA5A72F7CBDC262755036798C93",
+        "program_name": "INNER GARDEN BILINGUAL DAYHOME AGENCY",
+        "program_city": "CALGARY",
+        "total_non_compliance_citations": 34,
+        "visits_with_non_compliance": 10,
+        "highest_enforcement_action": "ORDER TO REMEDY",
+        "most_recent_inspection_date": "2025-11-17"
+      },
+      {
+        "rank": 5,
+        "program_id": "CFBE56253A0BBEA85A37B99D1F2C7583",
+        "program_name": "HINTON CHILDREN'S LEARNING CENTRE",
+        "program_city": "HINTON",
+        "total_non_compliance_citations": 26,
+        "visits_with_non_compliance": 9,
+        "highest_enforcement_action": "LICENCE SUSPENSION",
+        "most_recent_inspection_date": "2025-12-09"
+      },
+      {
+        "rank": 6,
+        "program_id": "66201FBCDC90E694095C76249883EF42",
+        "program_name": "TLC DAYCARE",
+        "program_city": "ST. PAUL",
+        "total_non_compliance_citations": 17,
+        "visits_with_non_compliance": 9,
+        "highest_enforcement_action": "VARIATION OF LICENCE PROVISIONS",
+        "most_recent_inspection_date": "2025-12-16"
+      },
+      {
+        "rank": 7,
+        "program_id": "DD06C1ED62CB239EBB7702F8AD47DA62",
+        "program_name": "GROWING MIRACLES CHILDCARE AND EARLY LEARNING LTD",
+        "program_city": "AIRDRIE",
+        "total_non_compliance_citations": 14,
+        "visits_with_non_compliance": 9,
+        "highest_enforcement_action": "ORDER TO REMEDY",
+        "most_recent_inspection_date": "2025-11-25"
+      },
+      {
+        "rank": 8,
+        "program_id": "FF392CF4B69B6B6323AD54E597E69C13",
+        "program_name": "ASPEN LAKES DISCOVERY CENTER LTD.",
+        "program_city": "BLACKFALDS",
+        "total_non_compliance_citations": 13,
+        "visits_with_non_compliance": 9,
+        "highest_enforcement_action": "ORDER TO REMEDY",
+        "most_recent_inspection_date": "2025-10-21"
+      },
+      {
+        "rank": 9,
+        "program_id": "11931938A528B524ACB3E97D549C309F",
+        "program_name": "ST. ALBERT DAY CARE CENTRE",
+        "program_city": "ST. ALBERT",
+        "total_non_compliance_citations": 11,
+        "visits_with_non_compliance": 8,
+        "highest_enforcement_action": "LICENCE SUSPENSION",
+        "most_recent_inspection_date": "2025-11-26"
+      },
+      {
+        "rank": 10,
+        "program_id": "39E55361EBB71D8DBE8E6F591D720FBE",
+        "program_name": "EVANSPARK ELCC ACADEMY",
+        "program_city": "CALGARY",
+        "total_non_compliance_citations": 15,
+        "visits_with_non_compliance": 8,
+        "highest_enforcement_action": "VARIATION OF LICENCE PROVISIONS",
+        "most_recent_inspection_date": "2025-12-11"
+      },
+      {
+        "rank": 11,
+        "program_id": "2DA3ED77CF8188C343FD8C138C14CBBE",
+        "program_name": "CHILD DEVELOPMENT DAYHOMES OF ALBERTA",
+        "program_city": "CALGARY",
+        "total_non_compliance_citations": 13,
+        "visits_with_non_compliance": 8,
+        "highest_enforcement_action": "ORDER TO REMEDY",
+        "most_recent_inspection_date": "2025-12-17"
+      },
+      {
+        "rank": 12,
+        "program_id": "F9041A24D71F9932BF3537C1DF71883E",
+        "program_name": "HAPPY HOUSE DAYCARE (SOUTH)",
+        "program_city": "COLD LAKE",
+        "total_non_compliance_citations": 19,
+        "visits_with_non_compliance": 7,
+        "highest_enforcement_action": "LICENCE SUSPENSION",
+        "most_recent_inspection_date": "2025-12-10"
+      },
+      {
+        "rank": 13,
+        "program_id": "8E09CA0DD696C5263CD20D6249EEDA3F",
+        "program_name": "CONNECTING DOTS-DAVE BARR",
+        "program_city": "GRANDE PRAIRIE",
+        "total_non_compliance_citations": 22,
+        "visits_with_non_compliance": 7,
+        "highest_enforcement_action": "VARIATION OF LICENCE PROVISIONS",
+        "most_recent_inspection_date": "2025-11-12"
+      },
+      {
+        "rank": 14,
+        "program_id": "E7A7D08E1AEEEF0C44696906EAD0980F",
+        "program_name": "BRIGHTPATH WEST HENDAY",
+        "program_city": "EDMONTON",
+        "total_non_compliance_citations": 11,
+        "visits_with_non_compliance": 7,
+        "highest_enforcement_action": "ORDER TO REMEDY",
+        "most_recent_inspection_date": "2025-12-15"
+      },
+      {
+        "rank": 15,
+        "program_id": "61FFE16941E4F2BEFA94110A2F6607ED",
+        "program_name": "RISING PILLARS CHILDCARE",
+        "program_city": "CALGARY",
+        "total_non_compliance_citations": 19,
+        "visits_with_non_compliance": 7,
+        "highest_enforcement_action": "ORDER TO REMEDY",
+        "most_recent_inspection_date": "2025-12-04"
+      },
+      {
+        "rank": 16,
+        "program_id": "B1D38049FFAF6476045EC81CA834D48E",
+        "program_name": "EDSON EARLY LEARNING & CHILD CARE",
+        "program_city": "EDSON",
+        "total_non_compliance_citations": 11,
+        "visits_with_non_compliance": 7,
+        "highest_enforcement_action": "ORDER TO REMEDY",
+        "most_recent_inspection_date": "2025-12-01"
+      },
+      {
+        "rank": 17,
+        "program_id": "14DF8DD274F0D035A4AB6734344FAD92",
+        "program_name": "BRIGHT STARS DAYCARE AND OSC",
+        "program_city": "EDMONTON",
+        "total_non_compliance_citations": 18,
+        "visits_with_non_compliance": 7,
+        "highest_enforcement_action": "ORDER TO REMEDY",
+        "most_recent_inspection_date": "2025-11-26"
+      },
+      {
+        "rank": 18,
+        "program_id": "A913A94BCCE9473E80D71B4094F3464E",
+        "program_name": "TODDLE INN DAY CARE SOCIETY",
+        "program_city": "STRATHMORE",
+        "total_non_compliance_citations": 13,
+        "visits_with_non_compliance": 7,
+        "highest_enforcement_action": "ORDER TO REMEDY",
+        "most_recent_inspection_date": "2025-11-25"
+      },
+      {
+        "rank": 19,
+        "program_id": "DA0F21295B0C863EFB8F9532AB7CE9DB",
+        "program_name": "FUELING BRAINS ACADEMY WEST 85TH",
+        "program_city": "CALGARY",
+        "total_non_compliance_citations": 18,
+        "visits_with_non_compliance": 7,
+        "highest_enforcement_action": "ORDER TO REMEDY",
+        "most_recent_inspection_date": "2025-11-19"
+      },
+      {
+        "rank": 20,
+        "program_id": "55AB7DB8F401F3974BA8DC0E65B36586",
+        "program_name": "ACTIVE START CHILD CARE SETON",
+        "program_city": "CALGARY",
+        "total_non_compliance_citations": 13,
+        "visits_with_non_compliance": 7,
+        "highest_enforcement_action": "ORDER TO REMEDY",
+        "most_recent_inspection_date": "2025-11-14"
+      }
+    ]
+  }
+}
